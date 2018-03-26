@@ -1,17 +1,31 @@
 <template>
   <div>
-    <a href="javascript:;" @click="$store.state.dialog.show = true">点击</a>
-    <a href="javascript:;" @click="$store.commit('switch_dialog')">点击</a>
-    <a href="javascript:;" @click="$store.dispatch('switch_dialog')">点击</a>
-    <t-dialog></t-dialog>
+    <!-- <p>{{ $store.state.dialog.show }}</p>
+    <p>{{ $store.state.dialog.child.show }}</p>
+    <p>{{ a }}</p>
+    <p>{{ b }}</p> -->
+    <p>{{ not_show }}</p>
+    <p>{{ not_show1 }}</p>
   </div>
 </template>
 
 <script>
-  import dialog from './dialog.vue'
+import {mapState,mapGetters} from 'vuex'
   export default {
-    components:{
-      "t-dialog":dialog
-    }
+    computed: {
+      ...mapGetters('dialog',{
+        'not_show':'not_show'
+        }
+      ),
+      ...mapGetters('dialog',{
+        'not_show1':'not_show1'
+        }
+      )
+
+      // ...mapState({
+      //   a: state => state.dialog.show,
+      //   b: state => state.dialog.child.show
+      // })
+    },
   }
 </script>

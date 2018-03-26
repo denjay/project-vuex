@@ -1,13 +1,10 @@
-import child from './child'
-
 export default {
-    namespaced: true,
     state:{//state
-        show:"show的值"
+        show:"子show的值"
     },
     getters:{
-        not_show(state){//这里的state对应着上面这个state
-            return "getter的not_show";
+        not_show1(state){//这里的state对应着上面这个state
+            return 'getters不显示';
         }
     },
     mutations:{
@@ -21,6 +18,5 @@ export default {
             context.commit('switch_dialog');
             //你还可以在这里触发其他的mutations方法
         },
-    },
-    modules: {child:child},
+    }
 }
